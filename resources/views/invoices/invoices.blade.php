@@ -53,6 +53,19 @@
         </script>
     @endif
 
+    @if (session()->has('restore_invoice'))
+        <script>
+            window.onload = function() {
+                notif({
+                    msg: "تم استعادة الفاتورة بنجاح",
+                    type: "success"
+                })
+            }
+
+        </script>
+    @endif
+
+
     <!-- row -->
     <div class="row">
         <!--div-->
@@ -135,7 +148,7 @@
                                                     <a class="dropdown-item"
                                                         href="{{ URL::route('Status_show', [$invoice->id]) }}"><i
                                                             class=" text-success fas
-                                                                                                                fa-money-bill"></i>&nbsp;&nbsp;تغير
+                                                                                                                                        fa-money-bill"></i>&nbsp;&nbsp;تغير
                                                         حالة
                                                         الدفع</a>
 
@@ -204,7 +217,7 @@
                 </div>
                 <div class="modal-body">
                     هل انت متاكد من عملية الارشفة ؟
-                    <input type="text" name="invoice_id" id="invoice_id" value="">
+                    <input type="hidden" name="invoice_id" id="invoice_id" value="">
                     <input type="hidden" name="id_page" id="id_page" value="2">
 
                 </div>

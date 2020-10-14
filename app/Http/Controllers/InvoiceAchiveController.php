@@ -68,9 +68,12 @@ class InvoiceAchiveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+  public function update(Request $request)
     {
-        //
+        $id = $request->invoice_id;
+        $flight= Invoices::withTrashed()->where('id', $id)->restore();
+         session()->flash('restore_invoice');
+         return redirect('/invoices');
     }
 
     /**
