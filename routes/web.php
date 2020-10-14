@@ -48,4 +48,6 @@ Route::get('/Status_show/{id}', 'InvoicesController@show')->name('Status_show');
 
 Route::post('/Status_Update/{id}', 'InvoicesController@Status_Update')->name('Status_Update');
 
+Route::resource('Archive', 'InvoiceAchiveController');
+
 Route::get('/{page}', 'AdminController@index');
