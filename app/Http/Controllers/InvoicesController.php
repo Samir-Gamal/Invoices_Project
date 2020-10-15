@@ -129,6 +129,7 @@ class InvoicesController extends Controller
      */
     public function update(Request $request)
     {
+
         $invoices = invoices::findOrFail($request->invoice_id);
         $invoices->update([
             'invoice_number' => $request->invoice_number,
@@ -172,7 +173,6 @@ class InvoicesController extends Controller
         }
 
         $invoices->forceDelete();
-      
         session()->flash('delete_invoice');
         return redirect('/invoices');
          
@@ -245,7 +245,7 @@ class InvoicesController extends Controller
 
      public function Invoice_Paid()
     {
-        $invoices = Invoices::where('Value_Status',1)->get();
+        $invoices = Invoices::where('Value_Status', 1)->get();
         return view('invoices.invoices_paid',compact('invoices'));
     }
 
