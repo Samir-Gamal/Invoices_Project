@@ -56,5 +56,6 @@ Route::get('Invoice_UnPaid','InvoicesController@Invoice_UnPaid');
 
 Route::get('Invoice_Partial','InvoicesController@Invoice_Partial');
 
+Route::get('Print_invoice/{id}','InvoicesController@Print_invoice');
 
 Route::get('/{page}', 'AdminController@index');

@@ -148,7 +148,7 @@
                                                     <a class="dropdown-item"
                                                         href="{{ URL::route('Status_show', [$invoice->id]) }}"><i
                                                             class=" text-success fas
-                                                                                                                                                fa-money-bill"></i>&nbsp;&nbsp;تغير
+                                                                                                                                                                                                                                                                        fa-money-bill"></i>&nbsp;&nbsp;تغير
                                                         حالة
                                                         الدفع</a>
 
@@ -157,6 +157,10 @@
                                                             class="text-warning fas fa-exchange-alt"></i>&nbsp;&nbsp;نقل الي
                                                         الارشيف</a>
 
+                                                    <a class="dropdown-item" href="Print_invoice/{{ $invoice->id }}"><i
+                                                            class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
+                                                        الفاتورة
+                                                    </a>
                                                 </div>
                                             </div>
 
