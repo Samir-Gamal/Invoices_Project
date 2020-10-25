@@ -72,10 +72,14 @@
         <div class="col-xl-12">
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
-                    <div class="d-flex justify-content-between">
-                        <a href="invoices/create" class="modal-effect btn btn-sm btn-primary" style="color:white"><i
-                                class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
-                    </div>
+
+                    <a href="invoices/create" class="modal-effect btn btn-sm btn-primary" style="color:white"><i
+                            class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
+
+                    <a class="modal-effect btn btn-sm btn-primary" href="{{ url('export_invoices') }}"
+                        style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
+
+
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -148,7 +152,7 @@
                                                     <a class="dropdown-item"
                                                         href="{{ URL::route('Status_show', [$invoice->id]) }}"><i
                                                             class=" text-success fas
-                                                                                                                                                                                                                                                                        fa-money-bill"></i>&nbsp;&nbsp;تغير
+                                                                                                                                                                                                                                                                                                                                                            fa-money-bill"></i>&nbsp;&nbsp;تغير
                                                         حالة
                                                         الدفع</a>
 
