@@ -14,7 +14,7 @@ use HasRoles;
 * @var array
 */
 protected $fillable = [
-'name', 'email', 'password',
+'name', 'email', 'password','roles_name','Status'
 ];
 /**
 * The attributes that should be hidden for arrays.
@@ -31,5 +31,7 @@ protected $hidden = [
 */
 protected $casts = [
 'email_verified_at' => 'datetime',
+'roles_name' => 'array',
+
 ];
 }

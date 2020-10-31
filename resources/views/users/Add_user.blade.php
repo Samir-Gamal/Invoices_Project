@@ -98,7 +98,7 @@
                         <div class="col-xs-12 col-md-12">
                             <div class="form-group">
                                 <label class="form-label"> صلاحية المستخدم</label>
-                                {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                                {!! Form::select('roles_name[]', $roles,[], array('class' => 'form-control','multiple')) !!}
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,9 @@ return view('users.show_users',compact('data'))
 public function create()
 {
 $roles = Role::pluck('name','name')->all();
-return view('users.create',compact('roles'));
+
+return view('users.Add_user',compact('roles'));
+
 }
 /**
 * Store a newly created resource in storage.
@@ -43,13 +45,16 @@ $this->validate($request, [
 'name' => 'required',
 'email' => 'required|email|unique:users,email',
 'password' => 'required|same:confirm-password',
-'roles' => 'required'
+'roles_name' => 'required'
 ]);
 
 $input = $request->all();
+
+
 $input['password'] = Hash::make($input['password']);
+
 $user = User::create($input);
-$user->assignRole($request->input('roles'));
+$user->assignRole($request->input('roles_name'));
 return redirect()->route('users.index')
 ->with('success','User created successfully');
 }
