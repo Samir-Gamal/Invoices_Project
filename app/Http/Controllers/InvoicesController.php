@@ -96,11 +96,8 @@ class InvoicesController extends Controller
         }
 
          
-            $user = User::first();
-        
-            //$user->notify(new AddInvoice($invoice_id));
-            
-            Notification::send($user, new AddInvoice($invoice_id));
+           // $user = User::first();
+           // Notification::send($user, new AddInvoice($invoice_id));
 
 
         

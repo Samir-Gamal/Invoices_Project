@@ -56,7 +56,7 @@ $input['password'] = Hash::make($input['password']);
 $user = User::create($input);
 $user->assignRole($request->input('roles_name'));
 return redirect()->route('users.index')
-->with('success','User created successfully');
+->with('success','تم اضافة المستخدم بنجاح');
 }
 
 /**
@@ -109,7 +109,7 @@ $user->update($input);
 DB::table('model_has_roles')->where('model_id',$id)->delete();
 $user->assignRole($request->input('roles'));
 return redirect()->route('users.index')
-->with('success','User updated successfully');
+->with('success','تم تحديث معلومات المستخدم بنجاح');
 }
 /**
 * Remove the specified resource from storage.
@@ -117,10 +117,9 @@ return redirect()->route('users.index')
 * @param  int  $id
 * @return \Illuminate\Http\Response
 */
-public function destroy($id)
+public function destroy(Request $request)
 {
-User::find($id)->delete();
-return redirect()->route('users.index')
-->with('success','User deleted successfully');
+User::find($request->user_id)->delete();
+return redirect()->route('users.index')->with('success','تم حذف المستخدم بنجاح');
 }
 }

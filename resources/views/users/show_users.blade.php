@@ -31,40 +31,10 @@
 
 @section('content')
 
-@if (session()->has('Add'))
-    <script>
-        window.onload = function() {
-            notif({
-                msg: " تم اضافة المستخدم بنجاح",
-                type: "success"
-            });
-        }
-
-    </script>
-@endif
-
-@if (session()->has('edit'))
-    <script>
-        window.onload = function() {
-            notif({
-                msg: " تم تحديث بيانات المستخدم بنجاح",
-                type: "success"
-            });
-        }
-
-    </script>
-@endif
-
-@if (session()->has('delete'))
-    <script>
-        window.onload = function() {
-            notif({
-                msg: " تم حذف المستخدم بنجاح",
-                type: "error"
-            });
-        }
-
-    </script>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
 @endif
 
 <!-- row opened -->
