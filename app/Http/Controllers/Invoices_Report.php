@@ -56,6 +56,8 @@ class Invoices_Report extends Controller
         return view('reports.invoices_report')->withDetails($invoices);
         
     }
+
+    
      
     }
     
