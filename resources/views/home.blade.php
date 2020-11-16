@@ -4,9 +4,9 @@
 @stop
 @section('css')
     <!--  Owl-carousel css-->
-    <link href="{{URL::asset('assets/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/plugins/owl-carousel/owl.carousel.css') }}" rel="stylesheet" />
     <!-- Maps css -->
-    <link href="{{URL::asset('assets/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/jqvmap/jqvmap.min.css') }}" rel="stylesheet">
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
@@ -21,7 +21,9 @@
             <div>
                 <label class="tx-13">Customer Ratings</label>
                 <div class="main-star">
-                    <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i class="typcn typcn-star"></i> <span>(14,873)</span>
+                    <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i
+                        class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i
+                        class="typcn typcn-star"></i> <span>(14,873)</span>
                 </div>
             </div>
             <div>
@@ -43,18 +45,21 @@
             <div class="card overflow-hidden sales-card bg-primary-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">TODAY ORDERS</h6>
+                        <h6 class="mb-3 tx-12 text-white">اجمالي الفواتير</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">$5,74.12</h4>
-                                <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                    {{ number_format(\App\invoices::sum('Total'), 2) }}
+                                </h4>
+                                <p class="mb-0 tx-12 text-white op-7">{{ \App\invoices::count() }}</p>
                             </div>
                             <span class="float-right my-auto mr-auto">
-											<i class="fas fa-arrow-circle-up text-white"></i>
-											<span class="text-white op-7"> +427</span>
-										</span>
+                                <i class="fas fa-arrow-circle-up text-white"></i>
+                                <span class="text-white op-7">100%</span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -65,18 +70,25 @@
             <div class="card overflow-hidden sales-card bg-danger-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">TODAY EARNINGS</h6>
+                        <h6 class="mb-3 tx-12 text-white">الفواتير الغير مدفوعة</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">$1,230.17</h4>
-                                <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
+                                <h3 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                    {{ number_format(\App\invoices::where('Value_Status', 2)->sum('Total'), 2) }}
+
+                                </h3>
+                                <p class="mb-0 tx-12 text-white op-7">{{ \App\invoices::where('Value_Status', 2)->count() }}
+                                </p>
                             </div>
                             <span class="float-right my-auto mr-auto">
-											<i class="fas fa-arrow-circle-down text-white"></i>
-											<span class="text-white op-7"> -23.09%</span>
-										</span>
+                                <i class="fas fa-arrow-circle-down text-white"></i>
+                                <span class="text-white op-7">
+                                    {{ round((\App\invoices::where('Value_Status', 2)->count() / \App\invoices::count()) * 100) }}%
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -87,18 +99,26 @@
             <div class="card overflow-hidden sales-card bg-success-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">TOTAL EARNINGS</h6>
+                        <h6 class="mb-3 tx-12 text-white">الفواتير المدفوعة</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">$7,125.70</h4>
-                                <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                    {{ number_format(\App\invoices::where('Value_Status', 1)->sum('Total'), 2) }}
+
+                                </h4>
+                                <p class="mb-0 tx-12 text-white op-7">
+                                    {{ \App\invoices::where('Value_Status', 1)->count() }}
+                                </p>
                             </div>
                             <span class="float-right my-auto mr-auto">
-											<i class="fas fa-arrow-circle-up text-white"></i>
-											<span class="text-white op-7"> 52.09%</span>
-										</span>
+                                <i class="fas fa-arrow-circle-up text-white"></i>
+                                <span class="text-white op-7">
+                                    {{ round((\App\invoices::where('Value_Status', 1)->count() / \App\invoices::count()) * 100) }}%
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -109,18 +129,26 @@
             <div class="card overflow-hidden sales-card bg-warning-gradient">
                 <div class="pl-3 pt-3 pr-3 pb-2 pt-0">
                     <div class="">
-                        <h6 class="mb-3 tx-12 text-white">PRODUCT SOLD</h6>
+                        <h6 class="mb-3 tx-12 text-white">الفواتير المدفوعة جزئيا</h6>
                     </div>
                     <div class="pb-0 mt-0">
                         <div class="d-flex">
                             <div class="">
-                                <h4 class="tx-20 font-weight-bold mb-1 text-white">$4,820.50</h4>
-                                <p class="mb-0 tx-12 text-white op-7">Compared to last week</p>
+                                <h4 class="tx-20 font-weight-bold mb-1 text-white">
+
+                                    {{ number_format(\App\invoices::where('Value_Status', 3)->sum('Total'), 2) }}
+
+                                </h4>
+                                <p class="mb-0 tx-12 text-white op-7">
+                                    {{ \App\invoices::where('Value_Status', 3)->count() }}
+                                </p>
                             </div>
                             <span class="float-right my-auto mr-auto">
-											<i class="fas fa-arrow-circle-down text-white"></i>
-											<span class="text-white op-7"> -152.3</span>
-										</span>
+                                <i class="fas fa-arrow-circle-down text-white"></i>
+                                <span class="text-white op-7">
+                                    {{ round((\App\invoices::where('Value_Status', 3)->count() / \App\invoices::count()) * 100) }}%
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -139,7 +167,8 @@
                         <h4 class="card-title mb-0">Order status</h4>
                         <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
-                    <p class="tx-12 text-muted mb-0">Order Status and Tracking. Track your order from ship date to arrival. To begin, enter your order number.</p>
+                    <p class="tx-12 text-muted mb-0">Order Status and Tracking. Track your order from ship date to arrival.
+                        To begin, enter your order number.</p>
                 </div>
                 <div class="card-body">
                     <div class="total-revenue">
@@ -178,86 +207,97 @@
             <div class="card">
                 <div class="card-header pb-1">
                     <h3 class="card-title mb-2">Recent Customers</h3>
-                    <p class="tx-12 mb-0 text-muted">A customer is an individual or business that purchases the goods service has evolved to include real-time</p>
+                    <p class="tx-12 mb-0 text-muted">A customer is an individual or business that purchases the goods
+                        service has evolved to include real-time</p>
                 </div>
                 <div class="card-body p-0 customers mt-1">
                     <div class="list-group list-lg-group list-group-flush">
                         <div class="list-group-item list-group-item-action" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/3.jpg')}}" alt="Image description">
+                                <img class="avatar-lg rounded-circle ml-3 my-auto"
+                                    src="{{ URL::asset('assets/img/faces/3.jpg') }}" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-0">
                                             <h5 class="mb-1 tx-15">Samantha Melon</h5>
-                                            <p class="mb-0 tx-13 text-muted">User ID: #1234 <span class="text-success ml-2">Paid</span></p>
+                                            <p class="mb-0 tx-13 text-muted">User ID: #1234 <span
+                                                    class="text-success ml-2">Paid</span></p>
                                         </div>
                                         <span class="mr-auto wd-45p fs-16 mt-2">
-														<div id="spark1" class="wd-100p"></div>
-													</span>
+                                            <div id="spark1" class="wd-100p"></div>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="list-group-item list-group-item-action" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/11.jpg')}}" alt="Image description">
+                                <img class="avatar-lg rounded-circle ml-3 my-auto"
+                                    src="{{ URL::asset('assets/img/faces/11.jpg') }}" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-1">
                                             <h5 class="mb-1 tx-15">Jimmy Changa</h5>
-                                            <p class="mb-0 tx-13 text-muted">User ID: #1234 <span class="text-danger ml-2">Pending</span></p>
+                                            <p class="mb-0 tx-13 text-muted">User ID: #1234 <span
+                                                    class="text-danger ml-2">Pending</span></p>
                                         </div>
                                         <span class="mr-auto wd-45p fs-16 mt-2">
-														<div id="spark2" class="wd-100p"></div>
-													</span>
+                                            <div id="spark2" class="wd-100p"></div>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="list-group-item list-group-item-action" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/17.jpg')}}" alt="Image description">
+                                <img class="avatar-lg rounded-circle ml-3 my-auto"
+                                    src="{{ URL::asset('assets/img/faces/17.jpg') }}" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-1">
                                             <h5 class="mb-1 tx-15">Gabe Lackmen</h5>
-                                            <p class="mb-0 tx-13 text-muted">User ID: #1234<span class="text-danger ml-2">Pending</span></p>
+                                            <p class="mb-0 tx-13 text-muted">User ID: #1234<span
+                                                    class="text-danger ml-2">Pending</span></p>
                                         </div>
                                         <span class="mr-auto wd-45p fs-16 mt-2">
-														<div id="spark3" class="wd-100p"></div>
-													</span>
+                                            <div id="spark3" class="wd-100p"></div>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="list-group-item list-group-item-action" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/15.jpg')}}" alt="Image description">
+                                <img class="avatar-lg rounded-circle ml-3 my-auto"
+                                    src="{{ URL::asset('assets/img/faces/15.jpg') }}" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-1">
                                             <h5 class="mb-1 tx-15">Manuel Labor</h5>
-                                            <p class="mb-0 tx-13 text-muted">User ID: #1234<span class="text-success ml-2">Paid</span></p>
+                                            <p class="mb-0 tx-13 text-muted">User ID: #1234<span
+                                                    class="text-success ml-2">Paid</span></p>
                                         </div>
                                         <span class="mr-auto wd-45p fs-16 mt-2">
-														<div id="spark4" class="wd-100p"></div>
-													</span>
+                                            <div id="spark4" class="wd-100p"></div>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="list-group-item list-group-item-action br-br-7 br-bl-7" href="#">
                             <div class="media mt-0">
-                                <img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('assets/img/faces/6.jpg')}}" alt="Image description">
+                                <img class="avatar-lg rounded-circle ml-3 my-auto"
+                                    src="{{ URL::asset('assets/img/faces/6.jpg') }}" alt="Image description">
                                 <div class="media-body">
                                     <div class="d-flex align-items-center">
                                         <div class="mt-1">
                                             <h5 class="mb-1 tx-15">Sharon Needles</h5>
-                                            <p class="b-0 tx-13 text-muted mb-0">User ID: #1234<span class="text-success ml-2">Paid</span></p>
+                                            <p class="b-0 tx-13 text-muted mb-0">User ID: #1234<span
+                                                    class="text-success ml-2">Paid</span></p>
                                         </div>
                                         <span class="mr-auto wd-45p fs-16 mt-2">
-														<div id="spark5" class="wd-100p"></div>
-													</span>
+                                            <div id="spark5" class="wd-100p"></div>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -270,26 +310,39 @@
             <div class="card">
                 <div class="card-header pb-1">
                     <h3 class="card-title mb-2">Sales Activity</h3>
-                    <p class="tx-12 mb-0 text-muted">Sales activities are the tactics that salespeople use to achieve their goals and objective</p>
+                    <p class="tx-12 mb-0 text-muted">Sales activities are the tactics that salespeople use to achieve their
+                        goals and objective</p>
                 </div>
                 <div class="product-timeline card-body pt-2 mt-1">
                     <ul class="timeline-1 mb-0">
-                        <li class="mt-0"> <i class="ti-pie-chart bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">Total Products</span> <a href="#" class="float-left tx-11 text-muted">3 days ago</a>
+                        <li class="mt-0"> <i class="ti-pie-chart bg-primary-gradient text-white product-icon"></i> <span
+                                class="font-weight-semibold mb-4 tx-14 ">Total Products</span> <a href="#"
+                                class="float-left tx-11 text-muted">3 days ago</a>
                             <p class="mb-0 text-muted tx-12">1.3k New Products</p>
                         </li>
-                        <li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">Total Sales</span> <a href="#" class="float-left tx-11 text-muted">35 mins ago</a>
+                        <li class="mt-0"> <i class="mdi mdi-cart-outline bg-danger-gradient text-white product-icon"></i>
+                            <span class="font-weight-semibold mb-4 tx-14 ">Total Sales</span> <a href="#"
+                                class="float-left tx-11 text-muted">35 mins ago</a>
                             <p class="mb-0 text-muted tx-12">1k New Sales</p>
                         </li>
-                        <li class="mt-0"> <i class="ti-bar-chart-alt bg-success-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">Toatal Revenue</span> <a href="#" class="float-left tx-11 text-muted">50 mins ago</a>
+                        <li class="mt-0"> <i class="ti-bar-chart-alt bg-success-gradient text-white product-icon"></i> <span
+                                class="font-weight-semibold mb-4 tx-14 ">Toatal Revenue</span> <a href="#"
+                                class="float-left tx-11 text-muted">50 mins ago</a>
                             <p class="mb-0 text-muted tx-12">23.5K New Revenue</p>
                         </li>
-                        <li class="mt-0"> <i class="ti-wallet bg-warning-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">Toatal Profit</span> <a href="#" class="float-left tx-11 text-muted">1 hour ago</a>
+                        <li class="mt-0"> <i class="ti-wallet bg-warning-gradient text-white product-icon"></i> <span
+                                class="font-weight-semibold mb-4 tx-14 ">Toatal Profit</span> <a href="#"
+                                class="float-left tx-11 text-muted">1 hour ago</a>
                             <p class="mb-0 text-muted tx-12">3k New profit</p>
                         </li>
-                        <li class="mt-0"> <i class="si si-eye bg-purple-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">Customer Visits</span> <a href="#" class="float-left tx-11 text-muted">1 day ago</a>
+                        <li class="mt-0"> <i class="si si-eye bg-purple-gradient text-white product-icon"></i> <span
+                                class="font-weight-semibold mb-4 tx-14 ">Customer Visits</span> <a href="#"
+                                class="float-left tx-11 text-muted">1 day ago</a>
                             <p class="mb-0 text-muted tx-12">15% increased</p>
                         </li>
-                        <li class="mt-0 mb-0"> <i class="icon-note icons bg-primary-gradient text-white product-icon"></i> <span class="font-weight-semibold mb-4 tx-14 ">Customer Reviews</span> <a href="#" class="float-left tx-11 text-muted">1 day ago</a>
+                        <li class="mt-0 mb-0"> <i class="icon-note icons bg-primary-gradient text-white product-icon"></i>
+                            <span class="font-weight-semibold mb-4 tx-14 ">Customer Reviews</span> <a href="#"
+                                class="float-left tx-11 text-muted">1 day ago</a>
                             <p class="mb-0 text-muted tx-12">1.5k reviews</p>
                         </li>
                     </ul>
@@ -300,7 +353,8 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <h3 class="card-title mb-2">Recent Orders</h3>
-                    <p class="tx-12 mb-0 text-muted">An order is an investor's instructions to a broker or brokerage firm to purchase or sell</p>
+                    <p class="tx-12 mb-0 text-muted">An order is an investor's instructions to a broker or brokerage firm to
+                        purchase or sell</p>
                 </div>
                 <div class="card-body sales-info ot-0 pt-0 pb-0">
                     <div id="chart" class="ht-150"></div>
@@ -331,7 +385,8 @@
                             </div>
                             <h4 class="font-weight-bold mb-2">$7,590</h4>
                             <div class="progress progress-style progress-sm">
-                                <div class="progress-bar bg-primary-gradient wd-80p" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
+                                <div class="progress-bar bg-primary-gradient wd-80p" role="progressbar" aria-valuenow="78"
+                                    aria-valuemin="0" aria-valuemax="78"></div>
                             </div>
                         </div>
                         <div class="col-md-6 mt-4 mt-md-0">
@@ -340,7 +395,8 @@
                             </div>
                             <h4 class="font-weight-bold mb-2">$5,460</h4>
                             <div class="progress progress-style progress-sm">
-                                <div class="progress-bar bg-danger-gradient wd-75" role="progressbar"  aria-valuenow="45" aria-valuemin="0" aria-valuemax="45"></div>
+                                <div class="progress-bar bg-danger-gradient wd-75" role="progressbar" aria-valuenow="45"
+                                    aria-valuemin="0" aria-valuemax="45"></div>
                             </div>
                         </div>
                     </div>
@@ -354,7 +410,8 @@
     <div class="row row-sm row-deck">
         <div class="col-md-12 col-lg-4 col-xl-4">
             <div class="card card-dashboard-eight pb-2">
-                <h6 class="card-title">Your Top Countries</h6><span class="d-block mg-b-10 text-muted tx-12">Sales performance revenue based by country</span>
+                <h6 class="card-title">Your Top Countries</h6><span class="d-block mg-b-10 text-muted tx-12">Sales
+                    performance revenue based by country</span>
                 <div class="list-group">
                     <div class="list-group-item border-top-0">
                         <i class="flag-icon flag-icon-us flag-icon-squared"></i>
@@ -393,44 +450,44 @@
                 <div class="table-responsive country-table">
                     <table class="table table-striped table-bordered mb-0 text-sm-nowrap text-lg-nowrap text-xl-nowrap">
                         <thead>
-                        <tr>
-                            <th class="wd-lg-25p">Date</th>
-                            <th class="wd-lg-25p tx-right">Sales Count</th>
-                            <th class="wd-lg-25p tx-right">Earnings</th>
-                            <th class="wd-lg-25p tx-right">Tax Witheld</th>
-                        </tr>
+                            <tr>
+                                <th class="wd-lg-25p">Date</th>
+                                <th class="wd-lg-25p tx-right">Sales Count</th>
+                                <th class="wd-lg-25p tx-right">Earnings</th>
+                                <th class="wd-lg-25p tx-right">Tax Witheld</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>05 Dec 2019</td>
-                            <td class="tx-right tx-medium tx-inverse">34</td>
-                            <td class="tx-right tx-medium tx-inverse">$658.20</td>
-                            <td class="tx-right tx-medium tx-danger">-$45.10</td>
-                        </tr>
-                        <tr>
-                            <td>06 Dec 2019</td>
-                            <td class="tx-right tx-medium tx-inverse">26</td>
-                            <td class="tx-right tx-medium tx-inverse">$453.25</td>
-                            <td class="tx-right tx-medium tx-danger">-$15.02</td>
-                        </tr>
-                        <tr>
-                            <td>07 Dec 2019</td>
-                            <td class="tx-right tx-medium tx-inverse">34</td>
-                            <td class="tx-right tx-medium tx-inverse">$653.12</td>
-                            <td class="tx-right tx-medium tx-danger">-$13.45</td>
-                        </tr>
-                        <tr>
-                            <td>08 Dec 2019</td>
-                            <td class="tx-right tx-medium tx-inverse">45</td>
-                            <td class="tx-right tx-medium tx-inverse">$546.47</td>
-                            <td class="tx-right tx-medium tx-danger">-$24.22</td>
-                        </tr>
-                        <tr>
-                            <td>09 Dec 2019</td>
-                            <td class="tx-right tx-medium tx-inverse">31</td>
-                            <td class="tx-right tx-medium tx-inverse">$425.72</td>
-                            <td class="tx-right tx-medium tx-danger">-$25.01</td>
-                        </tr>
+                            <tr>
+                                <td>05 Dec 2019</td>
+                                <td class="tx-right tx-medium tx-inverse">34</td>
+                                <td class="tx-right tx-medium tx-inverse">$658.20</td>
+                                <td class="tx-right tx-medium tx-danger">-$45.10</td>
+                            </tr>
+                            <tr>
+                                <td>06 Dec 2019</td>
+                                <td class="tx-right tx-medium tx-inverse">26</td>
+                                <td class="tx-right tx-medium tx-inverse">$453.25</td>
+                                <td class="tx-right tx-medium tx-danger">-$15.02</td>
+                            </tr>
+                            <tr>
+                                <td>07 Dec 2019</td>
+                                <td class="tx-right tx-medium tx-inverse">34</td>
+                                <td class="tx-right tx-medium tx-inverse">$653.12</td>
+                                <td class="tx-right tx-medium tx-danger">-$13.45</td>
+                            </tr>
+                            <tr>
+                                <td>08 Dec 2019</td>
+                                <td class="tx-right tx-medium tx-inverse">45</td>
+                                <td class="tx-right tx-medium tx-inverse">$546.47</td>
+                                <td class="tx-right tx-medium tx-danger">-$24.22</td>
+                            </tr>
+                            <tr>
+                                <td>09 Dec 2019</td>
+                                <td class="tx-right tx-medium tx-inverse">31</td>
+                                <td class="tx-right tx-medium tx-inverse">$425.72</td>
+                                <td class="tx-right tx-medium tx-danger">-$25.01</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -444,23 +501,23 @@
 @endsection
 @section('js')
     <!--Internal  Chart.bundle js -->
-    <script src="{{URL::asset('assets/plugins/chart.js/Chart.bundle.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
     <!-- Moment js -->
-    <script src="{{URL::asset('assets/plugins/raphael/raphael.min.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/raphael/raphael.min.js') }}"></script>
     <!--Internal  Flot js-->
-    <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.pie.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.resize.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/jquery.flot/jquery.flot.categories.js')}}"></script>
-    <script src="{{URL::asset('assets/js/dashboard.sampledata.js')}}"></script>
-    <script src="{{URL::asset('assets/js/chart.flot.sampledata.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jquery.flot/jquery.flot.categories.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/dashboard.sampledata.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/chart.flot.sampledata.js') }}"></script>
     <!--Internal Apexchart js-->
-    <script src="{{URL::asset('assets/js/apexcharts.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/apexcharts.js') }}"></script>
     <!-- Internal Map -->
-    <script src="{{URL::asset('assets/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-    <script src="{{URL::asset('assets/js/modal-popup.js')}}"></script>
+    <script src="{{ URL::asset('assets/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/modal-popup.js') }}"></script>
     <!--Internal  index js -->
-    <script src="{{URL::asset('assets/js/index.js')}}"></script>
-    <script src="{{URL::asset('assets/js/jquery.vmap.sampledata.js')}}"></script>
+    <script src="{{ URL::asset('assets/js/index.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/jquery.vmap.sampledata.js') }}"></script>
 @endsection
