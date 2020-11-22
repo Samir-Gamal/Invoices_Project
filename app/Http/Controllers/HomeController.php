@@ -31,7 +31,7 @@ class HomeController extends Controller
       $count_all =invoices::count();
       $count_invoices2 = invoices::where('Value_Status', 2)->count();
       $nspainvoices2 = $count_invoices2/ $count_all*100;
-    
+
       $count_invoices1 = invoices::where('Value_Status', 1)->count();
       $nspainvoices1 = $count_invoices1/ $count_all*100;
 
@@ -40,37 +40,50 @@ class HomeController extends Controller
 
 
         $chartjs = app()->chartjs
-        ->name('lineChartTest')
-        ->type('bar')
-        ->size(['width' => 350, 'height' => 200])
-        ->labels(['الفواتير الغير مدفوعة','الفواتير المدفوعة','الفواتير المدفوعة جزئيا'])
-        ->datasets([
-  
-            [
-                "label" => "نسبة الفواتير",
-                'backgroundColor' => "#3087E5",
-                'borderColor' => "rgba(38, 185, 154, 0.7)",
-                "pointBorderColor" => "rgba(38, 185, 154, 0.7)",
-                "pointBackgroundColor" => "rgba(38, 185, 154, 0.7)",
-                "pointHoverBackgroundColor" => "#fff",
-                "pointHoverBorderColor" => "rgba(220,220,220,1)",
-                'data' => [$nspainvoices2,$nspainvoices1,$nspainvoices3],
-            ]
-        ])
-            ->optionsRaw([
-                'legend' => [
-                    'display' => true,
-                    'labels' => [
-                        'fontColor' => 'black',
-                        'fontFamily' => 'Cairo',
-                        'fontStyle' => 'bold',
-                        'fontSize' => 14,
+            ->name('barChartTest')
+            ->type('bar')
+            ->size(['width' => 350, 'height' => 200])
+            ->labels(['الفواتير الغير المدفوعة', 'الفواتير المدفوعة','الفواتير المدفوعة جزئيا'])
+            ->datasets([
+                [
+                    "label" => "الفواتير الغير المدفوعة",
+                    'backgroundColor' => ['#ec5858'],
+                    'data' => [$nspainvoices2]
+                ],
+                [
+                    "label" => "الفواتير المدفوعة",
+                    'backgroundColor' => ['#81b214'],
+                    'data' => [$nspainvoices1]
+                ],
+                [
+                    "label" => "الفواتير المدفوعة جزئيا",
+                    'backgroundColor' => ['#ff9642'],
+                    'data' => [$nspainvoices3]
+                ],
 
-                    ]
+
+            ])
+            ->options([]);
+
+
+        $chartjs_2 = app()->chartjs
+            ->name('pieChartTest')
+            ->type('pie')
+            ->size(['width' => 340, 'height' => 200])
+            ->labels(['الفواتير الغير المدفوعة', 'الفواتير المدفوعة','الفواتير المدفوعة جزئيا'])
+            ->datasets([
+                [
+                    'backgroundColor' => ['#ec5858', '#81b214','#ff9642'],
+                    'data' => [$nspainvoices2, $nspainvoices1,$nspainvoices3]
                 ]
-            ]);   
+            ])
+            ->options([]);
 
-        return view('home', compact('chartjs'));
-        
+
+
+
+
+        return view('home', compact('chartjs','chartjs_2'));
+
     }
 }

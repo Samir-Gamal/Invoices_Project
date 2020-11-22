@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f2eac8-07b6-4f7d-a17f-cadb5a6483a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Attachments/5254645654/IstiqdamLetter.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Invoices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Invoices.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoiceAttachmentsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoiceAttachmentsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/invoices/details_invoice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/invoices/details_invoice.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +142,17 @@
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/fx3costa/laravelchartjs" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hCCyr3Dpb61NVYi5yKrsM5YrXI" />
@@ -201,6 +212,8 @@
       <workItem from="1601326384027" duration="2549000" />
       <workItem from="1601922853082" duration="100000" />
       <workItem from="1601922959158" duration="1586000" />
+      <workItem from="1606044821926" duration="617000" />
+      <workItem from="1606045455453" duration="2887000" />
     </task>
     <servers />
   </component>
@@ -223,10 +236,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1601922954237">
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1606045451322">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1601922954237" />
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1606045451322" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1599511886213">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
