@@ -51,7 +51,7 @@ class HomeController extends Controller
             $nspainvoices3=0;
         }
         else{
-            $nspainvoices3 = $nspainvoices3/ $count_all*100;
+            $nspainvoices3 = $count_invoices3/ $count_all*100;
         }
 
 

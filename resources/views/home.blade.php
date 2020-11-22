@@ -92,10 +92,10 @@
                                     $count_invoices2 = \App\invoices::where('Value_Status', 2)->count();
 
                                     if($count_invoices2 == 0){
-                                        $count_invoices2 = 0;
+                                       echo $count_invoices2 = 0;
                                     }
                                     else{
-                                        $count_invoices2 = $count_invoices2 / $count_all *100;
+                                       echo $count_invoices2 = $count_invoices2 / $count_all *100;
                                     }
                                     @endphp
 
@@ -133,10 +133,10 @@
                                         $count_invoices1 = \App\invoices::where('Value_Status', 1)->count();
 
                                         if($count_invoices1 == 0){
-                                            $count_invoices1 = 0;
+                                           echo $count_invoices1 = 0;
                                         }
                                         else{
-                                            $count_invoices1 = $count_invoices1 / $count_all *100;
+                                           echo $count_invoices1 = $count_invoices1 / $count_all *100;
                                         }
                                     @endphp
                                 </span>
@@ -173,10 +173,10 @@
                                         $count_invoices1 = \App\invoices::where('Value_Status', 1)->count();
 
                                         if($count_invoices1 == 0){
-                                            $count_invoices1 = 0;
+                                            echo $count_invoices1 = 0;
                                         }
                                         else{
-                                            $count_invoices1 = $count_invoices1 / $count_all *100;
+                                          echo $count_invoices1 = $count_invoices1 / $count_all *100;
                                         }
                                     @endphp
                                 </span>

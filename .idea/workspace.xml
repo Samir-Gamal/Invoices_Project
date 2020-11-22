@@ -211,7 +211,9 @@
       <workItem from="1601922853082" duration="100000" />
       <workItem from="1601922959158" duration="1586000" />
       <workItem from="1606044821926" duration="617000" />
-      <workItem from="1606045455453" duration="6290000" />
+      <workItem from="1606045455453" duration="7187000" />
+      <workItem from="1606052747979" duration="187000" />
+      <workItem from="1606070479752" duration="186000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1606048633345</created>
@@ -220,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606048633345</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1606052044156</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1606052044156</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,14 +273,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599511886213" />
-    <state x="186" y="10" key="SettingsEditor" timestamp="1601924022189">
+    <state x="186" y="10" key="SettingsEditor" timestamp="1606052783673">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1601924022189" />
-    <state x="275" y="84" key="Vcs.Push.Dialog.v2" timestamp="1606049773930">
+    <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606052783673" />
+    <state x="275" y="84" key="Vcs.Push.Dialog.v2" timestamp="1606052047733">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="84" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606049773930" />
+    <state x="275" y="84" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606052047733" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1606052682156">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606052682156" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606050276214">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
