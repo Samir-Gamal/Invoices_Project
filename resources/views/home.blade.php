@@ -86,7 +86,19 @@
                             <span class="float-right my-auto mr-auto">
                                 <i class="fas fa-arrow-circle-down text-white"></i>
                                 <span class="text-white op-7">
-                                    {{ round((\App\invoices::where('Value_Status', 2)->count() / \App\invoices::count()) * 100) }}%
+
+                                    @php
+                                    $count_all= \App\invoices::count();
+                                    $count_invoices2 = \App\invoices::where('Value_Status', 2)->count();
+
+                                    if($count_invoices2 == 0){
+                                        $count_invoices2 = 0;
+                                    }
+                                    else{
+                                        $count_invoices2 = $count_invoices2 / $count_all *100;
+                                    }
+                                    @endphp
+
                                 </span>
                             </span>
                         </div>
@@ -116,7 +128,17 @@
                             <span class="float-right my-auto mr-auto">
                                 <i class="fas fa-arrow-circle-up text-white"></i>
                                 <span class="text-white op-7">
-                                    {{ round((\App\invoices::where('Value_Status', 1)->count() / \App\invoices::count()) * 100) }}%
+                                    @php
+                                        $count_all= \App\invoices::count();
+                                        $count_invoices1 = \App\invoices::where('Value_Status', 1)->count();
+
+                                        if($count_invoices1 == 0){
+                                            $count_invoices1 = 0;
+                                        }
+                                        else{
+                                            $count_invoices1 = $count_invoices1 / $count_all *100;
+                                        }
+                                    @endphp
                                 </span>
                             </span>
                         </div>
@@ -146,7 +168,17 @@
                             <span class="float-right my-auto mr-auto">
                                 <i class="fas fa-arrow-circle-down text-white"></i>
                                 <span class="text-white op-7">
-                                    {{ round((\App\invoices::where('Value_Status', 3)->count() / \App\invoices::count()) * 100) }}%
+                                    @php
+                                        $count_all= \App\invoices::count();
+                                        $count_invoices1 = \App\invoices::where('Value_Status', 1)->count();
+
+                                        if($count_invoices1 == 0){
+                                            $count_invoices1 = 0;
+                                        }
+                                        else{
+                                            $count_invoices1 = $count_invoices1 / $count_all *100;
+                                        }
+                                    @endphp
                                 </span>
                             </span>
                         </div>
@@ -165,7 +197,7 @@
                 <div class="card-header bg-transparent pd-b-0 pd-t-20 bd-b-0">
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title mb-0">نسبة احصائية الفواتير</h4>
-
+                        <i class="mdi mdi-dots-horizontal text-gray"></i>
                     </div>
 
                 </div>
