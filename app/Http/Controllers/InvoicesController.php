@@ -95,12 +95,14 @@ class InvoicesController extends Controller
             $request->pic->move(public_path('Attachments/' . $invoice_number), $imageName);
         }
 
-         
+
            // $user = User::first();
            // Notification::send($user, new AddInvoice($invoice_id));
 
+        $user = User::get();
+        $invoices = invoices::latest()->first();
+        Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
 
-        
         session()->flash('Add', 'تم اضافة الفاتورة بنجاح');
         return back();
     }
@@ -185,17 +187,17 @@ class InvoicesController extends Controller
         $invoices->forceDelete();
         session()->flash('delete_invoice');
         return redirect('/invoices');
-         
+
         }
-        
+
         else {
-            
+
             $invoices->delete();
             session()->flash('archive_invoice');
             return redirect('/Archive');
         }
-    
-       
+
+
     }
     public function getproducts($id)
     {
@@ -207,7 +209,7 @@ class InvoicesController extends Controller
     public function Status_Update($id, Request $request)
     {
         $invoices = invoices::findOrFail($id);
-        
+
         if ($request->Status === 'مدفوعة') {
 
             $invoices->update([
@@ -227,8 +229,8 @@ class InvoicesController extends Controller
                 'Payment_Date' => $request->Payment_Date,
                 'user' => (Auth::user()->name),
             ]);
-        } 
-        
+        }
+
         else {
             $invoices->update([
                 'Value_Status' => 3,
@@ -277,12 +279,12 @@ class InvoicesController extends Controller
         return view('invoices.Print_invoice',compact('invoices'));
     }
 
-    public function export() 
+    public function export()
     {
-       
+
         return Excel::download(new InvoicesExport, 'invoices.xlsx');
-        
+
     }
 
-    
+
 }

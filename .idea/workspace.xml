@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f2eac8-07b6-4f7d-a17f-cadb5a6483a1" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/app/Notifications/Add_invoice_new.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_24_141850_create_notifications_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InvoicesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main-header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main-header.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +216,8 @@
       <workItem from="1606044821926" duration="617000" />
       <workItem from="1606045455453" duration="7187000" />
       <workItem from="1606052747979" duration="187000" />
-      <workItem from="1606070479752" duration="186000" />
+      <workItem from="1606070479752" duration="363000" />
+      <workItem from="1606226553520" duration="5715000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1606048633345</created>
@@ -229,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606052044156</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit">
+      <created>1606070789953</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606070789953</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,10 +288,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="186" y="10" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1606052783673" />
-    <state x="275" y="84" key="Vcs.Push.Dialog.v2" timestamp="1606052047733">
+    <state x="275" y="84" key="Vcs.Push.Dialog.v2" timestamp="1606070794590">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="84" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606052047733" />
+    <state x="275" y="84" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1606070794590" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1606052682156">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
