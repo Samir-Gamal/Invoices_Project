@@ -61,7 +61,7 @@ Route::get('Print_invoice/{id}','InvoicesController@Print_invoice');
 Route::get('export_invoices', 'InvoicesController@export');
 
 Route::group(['middleware' => ['auth']], function() {
-    
+
 Route::resource('roles','RoleController');
 
 Route::resource('users','UserController');
@@ -75,5 +75,7 @@ Route::post('Search_invoices', 'Invoices_Report@Search_invoices');
 Route::get('customers_report', 'Customers_Report@index')->name("customers_report");
 
 Route::post('Search_customers', 'Customers_Report@Search_customers');
+
+Route::get('MarkAsRead_all','InvoicesController@MarkAsRead_all')->name('MarkAsRead_all');
 
 Route::get('/{page}', 'AdminController@index');

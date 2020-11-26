@@ -29,7 +29,7 @@ $permissions = [
         'الاعدادات',
         'المنتجات',
         'الاقسام',
-     
+
 
         'اضافة فاتورة',
         'حذف الفاتورة',
@@ -57,13 +57,14 @@ $permissions = [
         'اضافة قسم',
         'تعديل قسم',
         'حذف قسم',
-    
+        'الاشعارات',
+
 ];
 
 
 
 foreach ($permissions as $permission) {
-    
+
 Permission::create(['name' => $permission]);
 }
 
