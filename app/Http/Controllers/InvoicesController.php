@@ -24,6 +24,8 @@ class InvoicesController extends Controller
      */
     public function index()
     {
+
+
         $invoices = invoices::all();
         return view('invoices.invoices', compact('invoices'));
     }
@@ -299,6 +301,26 @@ class InvoicesController extends Controller
 
 
     }
+
+
+    public function unreadNotifications_count()
+
+    {
+        return auth()->user()->unreadNotifications->count();
+    }
+
+    public function unreadNotifications()
+
+    {
+        foreach (auth()->user()->unreadNotifications as $notification){
+
+return $notification->data['title'];
+
+        }
+
+    }
+
+
 
 
 }
