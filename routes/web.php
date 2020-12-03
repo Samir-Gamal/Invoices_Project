@@ -78,4 +78,28 @@ Route::post('Search_customers', 'Customers_Report@Search_customers');
 
 Route::get('MarkAsRead_all','InvoicesController@MarkAsRead_all')->name('MarkAsRead_all');
 
+Route::get('unreadNotifications_count', 'InvoicesController@unreadNotifications_count')->name('unreadNotifications_count');
+
+Route::get('unreadNotifications', 'InvoicesController@unreadNotifications')->name('unreadNotifications');
+
+
+Route::get('home_xx', function () {
+   
+    return view('home_xx');
+});
+
+
+Route::get('test', function () {
+
+    $data =[
+
+      'id_user'=>1,
+       'username'=>'samirgamal',
+       'age'=>32,
+        
+    ];
+    event(new App\Events\StatusLiked($data));
+    return "Event has been sent!";
+});
+
 Route::get('/{page}', 'AdminController@index');
