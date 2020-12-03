@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 use App\Notifications\AddInvoice;
 use App\Exports\InvoicesExport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use App\Events\MyEventClass;
 class InvoicesController extends Controller
 {
     /**
@@ -104,6 +104,14 @@ class InvoicesController extends Controller
         $user = User::get();
         $invoices = invoices::latest()->first();
         Notification::send($user, new \App\Notifications\Add_invoice_new($invoices));
+
+     
+
+
+
+
+        
+        event(new MyEventClass('hello world'));
 
         session()->flash('Add', 'تم اضافة الفاتورة بنجاح');
         return back();
